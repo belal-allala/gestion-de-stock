@@ -240,13 +240,13 @@ void afficher_contacts() {
         printf("%serreur : le tableau de contacts est null.%s\n",rouge,reset);
         return;}
 
-    {printf("                       %sListe des contacts :%s\n",jaune,reset);
-    printf("+----------+----------------------+-----------------+----------------------------------+\n");
-    printf("|   %sID%s     |         %sName%s         |  %sPhone Number%s   |              %sEmail%s               |\n",jaune,reset,jaune,reset,jaune,reset,jaune,reset);
-    printf("+----------+----------------------+-----------------+----------------------------------+\n");
+    printf("                       %sListe des contacts :%s\n",jaune,reset);
+    printf("+---------------+----------------------+-----------------+----------------------------------+\n");
+    printf("|      %sID%s       |         %sName%s         |  %sPhone Number%s   |              %sEmail%s               |\n",jaune,reset,jaune,reset,jaune,reset,jaune,reset);
+    printf("+---------------+----------------------+-----------------+----------------------------------+\n");
     for (int i = 0; i < nb_contacts; i++) {
-        printf("| %s | %-20s | %-15s | %-32s |\n",contacts[i].id,contacts[i].nom,contacts[i].numero,contacts[i].email);}
-        printf("+----------+----------------------+-----------------+----------------------------------+\n");}}
+        printf("| %-8s | %-20s | %-15s | %-32s |\n",contacts[i].id,contacts[i].nom,contacts[i].numero,contacts[i].email);
+        printf("+---------------+----------------------+-----------------+----------------------------------+\n");}}
 
 //5.rechercher un Contact
 void rechercher_contact() {
@@ -281,18 +281,18 @@ void rechercher_contact() {
 }
 
 int main() {
-    char noms[10][50] = {"salma", "manal", "karim", "souhail", "ayoub",
-    "bilal", "ahmad", "naima", "amal", "kamal"};
-    char telephones[10][20] = {"0673897654", "0687654321", "0763437907","0754332422", 
-    "0676543222", "0673523263","0778901234", "0654343790", "0763438903", "0601234567"};
-    char emails[10][50] = {"salma@gmail.com", "amal@gmail.com", "manal@gmail.com","ahlam@gmail.com", 
-    "akram@gmail.com", "mouad@gmail.com","oumaima@gmail.com", 
-    "hanane@gmail.com", "hamza@gmail.com","hamza2@gmail.com"};
-    for (int i = 0; i < 10 ; i++) {
-        strcpy(contacts[nb_contacts].id,generer_id());
+    char noms[10][50] = {"salma", "manal", "karim"};
+    char telephones[10][20] = {"0673897654", "0687654321", "0763437907"};
+    char emails[10][50] = {"salma@gmail.com", "amal@gmail.com","ahlam@gmail.com",};
+    char ids[10][8]={"YC123456","YC112233","YC111234"};
+
+    for (i = 0 ;i < 3 ; i++ ) {
+        strcpy(contacts[nb_contacts].id,ids[i]);
         strcpy(contacts[nb_contacts].nom, noms[i]);
         strcpy(contacts[nb_contacts].numero, telephones[i]);
         strcpy(contacts[nb_contacts].email, emails[i]);
+        strcpy(id_table[i],ids[i]);
+        conteur_id++;
         nb_contacts++;}
 
     debut:
