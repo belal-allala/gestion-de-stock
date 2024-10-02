@@ -6,10 +6,11 @@
 
 // structure d'un contact
 struct contact {
-     char nom[50];
-     char numero[20];
-     char email[50];
-     char id[8];};
+    char id[8];
+    char nom[50];
+    char numero[20];
+    char email[50];
+    };
 
 // tableau de contacts et nombre de contacts
 struct contact contacts[100];
@@ -245,7 +246,7 @@ void afficher_contacts() {
     printf("|      %sID%s       ||         %sName%s         ||  %sPhone Number%s   ||              %sEmail%s               |\n",jaune,reset,jaune,reset,jaune,reset,jaune,reset);
     printf("+----------------+-----------------------+------------------+-----------------------------------+\n");
     for (int i = 0; i < nb_contacts; i++) {
-        printf("| %-8s |", contacts[i].id);
+        printf("| %s |", contacts[i].id);
         printf("| %-20s |",contacts[i].nom);
         printf("| %-15s |",contacts[i].numero);
         printf("| %-32s |\n",contacts[i].email);
@@ -285,18 +286,17 @@ void rechercher_contact() {
 }
 
 int main() {
+    const char ids[10][8]={"YC123456","YC112233","YC111234"};
     const char noms[10][50] = {"salma", "manal", "karim"};
     const char telephones[10][20] = {"0673897654", "0687654321", "0763437907"};
     const char emails[10][50] = {"salma@gmail.com", "amal@gmail.com","ahlam@gmail.com",};
-    const char ids[10][8]={"YC123456","YC112233","YC111234"};
 
     for (i = 0 ;i < 3 ; i++ ) {
-    
+        strcpy(contacts[nb_contacts].id, ids[i]);
         strcpy(contacts[nb_contacts].nom, noms[i]);
         strcpy(contacts[nb_contacts].numero, telephones[i]);
         strcpy(contacts[nb_contacts].email, emails[i]);
         strcpy(id_table[i],ids[i]);
-        strcpy(contacts[nb_contacts].id, ids[i]);
         conteur_id++;
         nb_contacts++;}
 
