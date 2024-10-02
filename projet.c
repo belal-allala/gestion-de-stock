@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
 #include <ctype.h>
+#include <time.h>
 
 // structure d'un contact
 struct contact {
@@ -113,7 +113,6 @@ char *generer_id() {
     conteur_id++; 
     return idi;
     }
-
 
 //1.Ajouter un contact
 void ajouter_contact() {
@@ -250,7 +249,7 @@ void afficher_contacts() {
         printf("+----------+----------------------+-----------------+----------------------------------+\n");}}
 
 //5.rechercher un Contact
-void rechercher_contact( ) {
+void rechercher_contact() {
     char nom_a_rechercher[50];
     int i;
     int trouve = 0;
@@ -282,16 +281,20 @@ void rechercher_contact( ) {
 }
 
 int main() {
-    char noms[10][20] = {"salma", "manal", "karim", "souhail", "ayoub","bilal", "ahmad", "naima", "amal", "kamal"};
-    char telephones[10][15] = {"0673897654", "0687654321", "0763437907","0754332422", "0676543222", "0673523263","0778901234", "0654343790", "0763438903", "0601234567"};
-    const char emails[10][30] = {"salma@gmail.com", "amal@gmail.com", "manal@gmail.com","ahlam@gmail.com", "akram@gmail.com", "mouad@gmail.com","oumaima@gmail.com", "hanane@gmail.com", "hamza@gmail.com","hamza2@gmail.com"};
+    char noms[10][50] = {"salma", "manal", "karim", "souhail", "ayoub",
+    "bilal", "ahmad", "naima", "amal", "kamal"};
+    char telephones[10][20] = {"0673897654", "0687654321", "0763437907","0754332422", 
+    "0676543222", "0673523263","0778901234", "0654343790", "0763438903", "0601234567"};
+    char emails[10][50] = {"salma@gmail.com", "amal@gmail.com", "manal@gmail.com","ahlam@gmail.com", 
+    "akram@gmail.com", "mouad@gmail.com","oumaima@gmail.com", 
+    "hanane@gmail.com", "hamza@gmail.com","hamza2@gmail.com"};
     for (int i = 0; i < 10 ; i++) {
         strcpy(contacts[nb_contacts].id,generer_id());
         strcpy(contacts[nb_contacts].nom, noms[i]);
         strcpy(contacts[nb_contacts].numero, telephones[i]);
         strcpy(contacts[nb_contacts].email, emails[i]);
-        nb_contacts++;
-    }
+        nb_contacts++;}
+
     debut:
     printf("\n%s**********Menu*********%s\n",jaune,reset);
     printf("1. ajouter un contact\n");
@@ -310,25 +313,26 @@ int main() {
     } while (verifi != 1 || choix < 0 || choix > 5);
     switch (choix) {
         case 1:
-        ajouter_contact();
-        break;
+            ajouter_contact();
+            break;
         case 2:
-        modifier_contact();
-        break;
+            modifier_contact();
+            break;
         case 3:
-        supprimer_contact();
-        break;
+            supprimer_contact();
+            break;
         case 4:
-        afficher_contacts();
-        break;
+            afficher_contacts();
+            break;
         case 5:
-        rechercher_contact();
-        break;
+            rechercher_contact();
+            break;
         case 0:
-        printf("au revoir!\n");
-        break;
+            printf("au revoir!\n");
+            break;
         default:
-        printf("%sChoix invalide.%s\n", rouge, reset);}
+            printf("%sChoix invalide.%s\n", rouge, reset);
+            break;}
 
     printf("%schoisir 0 ou 1 pour quitter ou bien revenir au menu pricipal %s\n",jaune,reset);
     printf("0. quitter le programme\n");
